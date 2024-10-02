@@ -22,7 +22,6 @@ const App = () => {
   }
 
   const handleSumNumbers = () => {
-
     if(firstNumber === '0'){
         setFirstNumber(String(currentNumber));
         setCurrentNumber('0')
@@ -31,22 +30,21 @@ const App = () => {
       const sum = Number(firstNumber) + Number(currentNumber);
       setCurrentNumber(String(sum))
       setOperation('')
+      setFirstNumber('0')
     }
-
   }
 
   const handleMinusNumbers = () => {
-
     if(firstNumber === '0'){
         setFirstNumber(String(currentNumber));
         setCurrentNumber('0')
         setOperation('-')
     }else {
-      const sum = Number(firstNumber) - Number(currentNumber);
-      setCurrentNumber(String(sum))
+      const minus = Number(firstNumber) - Number(currentNumber);
+      setCurrentNumber(String(minus))
       setOperation('')
+      setFirstNumber('0')
     }
-
   }
 
   const handleMultiplyNumbers = () => {
@@ -57,7 +55,8 @@ const App = () => {
     } else {
       const multiply = Number(firstNumber) * Number(currentNumber)
       setCurrentNumber(String(multiply))
-      setOperation("")
+      setOperation('')
+      setFirstNumber('0')
     }
   }
 
@@ -67,9 +66,14 @@ const App = () => {
       setCurrentNumber('0')
       setOperation("/")
     } else {
-      const divide = Number(firstNumber) / Number(currentNumber)
-      setCurrentNumber(String(divide))
-      setOperation("")
+      if (currentNumber !== "0"){
+        const divide = Number(firstNumber) / Number(currentNumber)
+        setCurrentNumber(String(divide))
+      } else {
+        setCurrentNumber('Erro')
+      }
+      setOperation('')
+      setFirstNumber('0')
     }
   }
 
