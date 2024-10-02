@@ -77,6 +77,10 @@ const App = () => {
     }
   }
 
+  const handlePercentage = () => {
+    setCurrentNumber(String(Number(currentNumber) / 100));
+  };
+
   const handleEquals = () => {
 
     if(firstNumber !== '0' && operation !== '' && currentNumber !== '0'){
@@ -106,6 +110,8 @@ const App = () => {
         <Input value={currentNumber}/>
         <Row>
           <Button label="c" onClick={handleOnClear}/>
+          <Button label="."/>
+          <Button label="%" onClick={handlePercentage} />
           <Button label="/" onClick={handleDivideNumbers}/>
         </Row>
         <Row>
@@ -128,7 +134,6 @@ const App = () => {
         </Row>
         <Row>
           <Button label="0" onClick={() => handleAddNumber('0')}/>
-          <Button label="."/>
           <Button label="=" onClick={handleEquals}/>
         </Row>
       </Content>
